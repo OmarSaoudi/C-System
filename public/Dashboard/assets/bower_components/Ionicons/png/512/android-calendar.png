@@ -1,0 +1,60 @@
+# PostCSS Nested
+
+<img align="right" width="135" height="95"
+     title="Philosopher’s stone, logo of PostCSS"
+     src="https://postcss.org/logo-leftp.svg">
+
+[PostCSS] plugin to unwrap nested rules like how Sass does it.
+
+```css
+.phone {
+    &_title {
+        width: 500px;
+        @media (max-width: 500px) {
+            width: auto;
+        }
+        body.is_dark & {
+            color: white;
+        }
+    }
+    img {
+        display: block;
+    }
+}
+
+.title {
+  font-size: var(--font);
+
+  @at-root html {
+      --font: 16px
+  }
+}
+```
+
+will be processed to:
+
+```css
+.phone_title {
+    width: 500px;
+}
+@media (max-width: 500px) {
+    .phone_title {
+        width: auto;
+    }
+}
+body.is_dark .phone_title {
+    color: white;
+}
+.phone img {
+    display: block;
+}
+
+.title {
+  font-size: var(--font);
+}
+html {
+  --font: 16px
+}
+```
+
+Related plugins:
