@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Dashboard\BanqueController;
 use App\Http\Controllers\Dashboard\ClientController;
 use App\Http\Controllers\Dashboard\CommandController;
 use App\Http\Controllers\Dashboard\DashboardController;
@@ -54,6 +55,10 @@ Route::group(
         Route::resource('commands', CommandController::class);
         Route::get('/Cars/{id}', [CommandController::class, 'show']);
         //############################# end commands route ######################################
+        //#############################  banque route ##########################################
+        Route::resource('banques', BanqueController::class);
+        //############################# end banque route ######################################
+
     });
 
     require __DIR__.'/auth.php';

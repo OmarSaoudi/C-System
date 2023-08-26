@@ -3,4 +3,5 @@
 <li class="header">MASTER</li>
 <li><a href="{{ route('clients.index') }}"><i class="fa fa-users"></i> <span>Clients</span></a></li>
 <li><a href="{{ route('commands.index') }}"><i class="fa fa fa-cog"></i> <span>Commands</span></a></li>
+<li><a href="{{ route('banques.index') }}"><i class="fa fa-users"></i> <span>Banques</span></a></li>
 
