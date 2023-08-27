@@ -5,6 +5,8 @@ use App\Interfaces\Commands\CommandRepositoryInterface;
 use App\Models\Car;
 use App\Models\Command;
 use App\Models\Client;
+use App\Models\Bank;
+
 
 class CommandRepository implements CommandRepositoryInterface
 {
@@ -18,7 +20,8 @@ class CommandRepository implements CommandRepositoryInterface
     public function create()
     {
         $clients = Client::all();
-        return view('Dashboard.commands.add',compact('clients'));
+        $banks = Bank::all();
+        return view('Dashboard.commands.add', compact('clients','banks'));
     }
 
     public function store($request) {
@@ -31,6 +34,7 @@ class CommandRepository implements CommandRepositoryInterface
                 'nom_commerciale' => $request->nom_commerciale,
                 'date_command' => $request->date_command,
                 'client_id' => $request->client_id,
+                'bank_id' => $request->bank_id,
                 'marque' => $request->marque,
                 'version' => $request->version,
                 'couleur' => $request->couleur,
@@ -60,14 +64,15 @@ class CommandRepository implements CommandRepositoryInterface
     {
         $commands = Command::where('id',$id)->first();
         $cars  = Car::where('command_id',$id)->get();
-        return view('Dashboard.commands.show',compact('commands','cars'));
+        return view('Dashboard.commands.show', compact('commands','cars'));
     }
 
     public function edit($id)
     {
         $clients = Client::all();
+        $banks = Bank::all();
         $commands = Command::findorfail($id);
-        return view('Dashboard.commands.edit',compact('commands','clients'));
+        return view('Dashboard.commands.edit', compact('commands','clients','banks'));
     }
 
     public function update($request)
@@ -81,6 +86,7 @@ class CommandRepository implements CommandRepositoryInterface
                 'nom_commerciale' => $request->nom_commerciale,
                 'date_command' => $request->date_command,
                 'client_id' => $request->client_id,
+                'bank_id' => $request->bank_id,
                 'marque' => $request->marque,
                 'version' => $request->version,
                 'couleur' => $request->couleur,

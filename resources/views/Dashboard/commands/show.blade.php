@@ -1,7 +1,7 @@
 @extends('Dashboard.layouts.master')
 
 @section('title')
-     Cars Details
+      Details
 @stop
 
 @section('css')
@@ -14,12 +14,12 @@
    <!-- Content Header (Page header) -->
    <section class="content-header">
      <h1>
-        Cars
+        Details
      </h1>
      <ol class="breadcrumb">
        <li><a href="{{ route('dashboard.admin') }}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
        <li><a href="{{ route('commands.index') }}">Commands</a></li>
-       <li class="active">Cars Details</li>
+       <li class="active">Details</li>
     </ol>
    </section>
 
@@ -33,13 +33,19 @@
         <br><br>
         <div class="nav-tabs-custom">
           <ul class="nav nav-tabs">
-            <li class="active"><a href="#tab_1" data-toggle="tab">Command information</a></li>
-            <li><a href="#tab_2" data-toggle="tab">Car information</a></li>
+            <li class="active"><a href="#tab_1" data-toggle="tab">Command Information</a></li>
+            <li><a href="#tab_2" data-toggle="tab">Car Information</a></li>
           </ul>
           <div class="tab-content">
             <div class="tab-pane active" id="tab_1">
                 <table class="table table-striped" style="text-align:center">
                     <tbody>
+                        <tr>
+                            <th scope="row">Client Name</th>
+                            <td>{{ $commands->client->name }}</td>
+                            <th scope="row">Bank Name</th>
+                            <td>{{ $commands->bank->name }}</td>
+                        </tr>
                         <tr>
                             <th scope="row">Num Command</th>
                             <td>{{ $commands->num_command }}</td>
@@ -47,14 +53,14 @@
                             <td>{{ $commands->nom_commerciale }}</td>
                             <th scope="row">Date Command</th>
                             <td>{{ $commands->date_command }}</td>
-                            <th scope="row">Client Name</th>
-                            <td>{{ $commands->client->name }}</td>
                         </tr>
                         <tr>
                             <th scope="row">Marque</th>
                             <td>{{ $commands->marque }}</td>
                             <th scope="row">Version</th>
                             <td>{{ $commands->version }}</td>
+                        </tr>
+                        <tr>
                             <th scope="row">Couleur</th>
                             <td>{{ $commands->couleur }}</td>
                             <th scope="row">Price</th>

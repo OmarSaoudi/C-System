@@ -15,6 +15,7 @@ class Command extends Model
         'num_command',
         'nom_commerciale',
         'client_id',
+        'bank_id',
         'date_command',
         'marque',
         'version',
@@ -25,5 +26,10 @@ class Command extends Model
     public function client()
     {
         return $this->belongsTo(Client::class);
+    }
+
+    public function bank()
+    {
+        return $this->belongsTo(Bank::class);
     }
 }

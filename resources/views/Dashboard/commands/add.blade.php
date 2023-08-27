@@ -46,25 +46,37 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                              <div class="form-group">
-                                 <label>Num Command</label>
-                                 <input type="text" name="num_command" value="{{ old('num_command') }}" class="form-control">
-                                 <span class="help-block with-errors"></span>
-                              </div>
+                                <div class="form-group">
+                                   <label>Banks</label>
+                                   <select name="bank_id" class="form-control"  required>
+                                      <option value="" selected disabled>Select Bank</option>
+                                      @foreach ($banks as $bank)
+                                          <option value="{{ $bank->id }}"> {{ $bank->name }}</option>
+                                      @endforeach
+                                   </select>
+                                   <span class="help-block with-errors"></span>
+                                </div>
                             </div>
                         </div>
                         {{-- End 1 --}}
 
                         {{-- 2 --}}
                         <div class="row">
-                          <div class="col-md-6">
+                          <div class="col-md-4">
+                                <div class="form-group">
+                                   <label>Num Command</label>
+                                   <input type="text" name="num_command" value="{{ old('num_command') }}" class="form-control">
+                                   <span class="help-block with-errors"></span>
+                                </div>
+                          </div>
+                          <div class="col-md-4">
                             <div class="form-group">
                                <label>Nom Commerciale</label>
                                <input type="text" name="nom_commerciale" value="{{ old('nom_commerciale') }}" class="form-control" required>
                                <span class="help-block with-errors"></span>
                             </div>
                           </div>
-                           <div class="col-md-6">
+                           <div class="col-md-4">
                               <div class="form-group">
                                 <label>Date Command</label>
                                 <input type="date" name="date_command" value="{{ date('Y-m-d') }}" class="form-control" required>

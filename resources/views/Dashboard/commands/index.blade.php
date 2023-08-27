@@ -38,6 +38,7 @@
               <tr>
                 <th>#</th>
                 <th>Client Name</th>
+                <th>Bank Name</th>
                 <th>Num Command</th>
                 <th>Nom Commerciale</th>
                 <th>Date Command</th>
@@ -50,6 +51,7 @@
               <tr>
                 <td>{{ $loop->index + 1 }}</td>
                 <td><a href="{{ url('admin/Cars') }}/{{ $command->id }}">{{ $command->client->name }}</a></td>
+                <td>{{ $command->bank->name }}</td>
                 <td>{{ $command->num_command }}</td>
                 <td>{{ $command->nom_commerciale }}</td>
                 <td>{{ $command->date_command }}</td>

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('num_command')->unique();
             $table->string('nom_commerciale');
             $table->foreignId('client_id')->constrained('clients')->cascadeOnDelete();
+            $table->foreignId('bank_id')->constrained('banks')->cascadeOnDelete();
             $table->date('date_command');
             $table->string('marque');
             $table->string('version');
