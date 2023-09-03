@@ -33,57 +33,52 @@
 
                         {{-- 1 --}}
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
-                                   <label>Clients</label>
-                                   <select name="client_id" class="form-control"  required>
-                                      <option value="" selected disabled>Select Client</option>
-                                      @foreach ($clients as $client)
-                                          <option value="{{ $client->id }}"> {{ $client->name }}</option>
-                                      @endforeach
-                                   </select>
-                                   <span class="help-block with-errors"></span>
+                                    <label>Nom Commerciale</label>
+                                    <input type="text" name="nom_commerciale" value="{{ old('nom_commerciale') }}" class="form-control" required>
+                                    <span class="help-block with-errors"></span>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+
+                            <div class="col-md-4">
                                 <div class="form-group">
-                                   <label>Banks</label>
-                                   <select name="bank_id" class="form-control"  required>
-                                      <option value="" selected disabled>Select Bank</option>
-                                      @foreach ($banks as $bank)
-                                          <option value="{{ $bank->id }}"> {{ $bank->name }}</option>
-                                      @endforeach
-                                   </select>
-                                   <span class="help-block with-errors"></span>
+                                    <label>Num Command</label>
+                                    <input type="text" name="num_command" value="{{ old('num_command') }}" class="form-control">
+                                    <span class="help-block with-errors"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Date Command</label>
+                                    <input type="date" name="date_command" value="{{ date('Y-m-d') }}" class="form-control" required>
+                                    <span class="help-block with-errors"></span>
                                 </div>
                             </div>
                         </div>
+
+
+
                         {{-- End 1 --}}
 
                         {{-- 2 --}}
                         <div class="row">
-                          <div class="col-md-4">
+                            <div class="col-md-6">
                                 <div class="form-group">
-                                   <label>Num Command</label>
-                                   <input type="text" name="num_command" value="{{ old('num_command') }}" class="form-control">
-                                   <span class="help-block with-errors"></span>
+                                    <label>Clients</label>
+                                    <select name="client_id" class="form-control"  required>
+                                        <option value="" selected disabled>Select Client</option>
+                                        @foreach ($clients as $client)
+                                            <option value="{{ $client->id }}"> {{ $client->name }}</option>
+                                        @endforeach
+                                    </select>
+                                    <span class="help-block with-errors"></span>
                                 </div>
-                          </div>
-                          <div class="col-md-4">
-                            <div class="form-group">
-                               <label>Nom Commerciale</label>
-                               <input type="text" name="nom_commerciale" value="{{ old('nom_commerciale') }}" class="form-control" required>
-                               <span class="help-block with-errors"></span>
                             </div>
-                          </div>
-                           <div class="col-md-4">
-                              <div class="form-group">
-                                <label>Date Command</label>
-                                <input type="date" name="date_command" value="{{ date('Y-m-d') }}" class="form-control" required>
-                                <span class="help-block with-errors"></span>
-                              </div>
-                            </div>
+
+
                         </div>
+
                         {{-- End 2 --}}
 
                         <div class="box-header">
@@ -118,6 +113,27 @@
                                     <span class="help-block with-errors"></span>
                                 </div>
                             </div>
+
+                        </div>
+                        {{-- End 4 --}}
+                        <div class="box-header">
+                            <h3 class="box-title">Payement Information</h3>
+                        </div>
+
+                        <div class="row">
+                             <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Banks</label>
+                                <select name="bank_id" class="form-control"  required>
+                                    <option value="" selected disabled>Select Bank</option>
+                                    @foreach ($banks as $bank)
+                                        <option value="{{ $bank->id }}"> {{ $bank->name }}</option>
+                                    @endforeach
+                                </select>
+                                <span class="help-block with-errors"></span>
+                            </div>
+                        </div>
+
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Price</label>
@@ -126,7 +142,6 @@
                                 </div>
                             </div>
                         </div>
-                        {{-- End 4 --}}
 
                         <br><br>
                         <div class="form-group" style="text-align:center">
